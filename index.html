@@ -1,0 +1,93 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Leaflet Map</title>
+  <!-- Link Leaflet css and javascript -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+</head>
+<body>
+  <!-- divide map bounding box -->
+  <center>
+  <br>
+  <FONT FACE="DB Manit X" size = "10">
+  <strong><font color="#8B4513">Map of 5 attractions in London, England</a></FONT></strong>
+  </FONT><br>
+  <div id = "map" style = "width: 1500px ; height: 600px" </div>
+  <!-- set center and Link map-->
+  <script>
+    var map = L.map("map").setView([51.51611574938605, -0.12909870549427557],16);
+
+    mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Map data &copy; ' + mapLink,
+    maxZoom: 19,
+    }).addTo(map);
+
+    var greenIcon = L.icon({
+    iconUrl: "RedBus.png",
+    shadowUrl: "",
+
+    iconSize: [40, 30], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62], // the same for the shadow
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var marker = L.marker([51.50906251075396, -0.12832045131959902],
+    {
+    icon: greenIcon,
+    draggable: true,
+    title: "The National Gallery",
+    opacity: 1.5
+     }).addTo(map)
+     .bindPopup("<b> หอศิลป์แห่งชาติ <br> The National Gallery <br> เวลาเปิด-ปิด: 10.00-18.00 </b>")
+     .openPopup();
+
+     var marker = L.marker([51.50152424667184, -0.14186316997209789],
+     {
+     icon: greenIcon,
+     draggable: true,
+     title: "Buckingham Palace",
+     opacity: 1.5
+      }).addTo(map)
+      .bindPopup("<b> พระราชวังบัคคิงแฮม <br> Buckingham Palace</b>")
+      .openPopup();
+
+      var marker = L.marker([51.51445710039299, -0.20378165829103184],
+      {
+      icon: greenIcon,
+      draggable: true,
+      title: "Portobello Market",
+      opacity: 1.5
+       }).addTo(map)
+       .bindPopup("<b> ตลาดพอตโทเบลโล <br> Portobello Market <br> เวลาเปิด-ปิด: 9.00-19.00 (หยุดทุกวันอาทิตย์)</b>")
+       .openPopup();
+
+       var marker = L.marker([51.513992148913054, -0.09831304172584186],
+       {
+       icon: greenIcon,
+       draggable: true,
+       title: "St. Paul's Cathedral",
+       opacity: 1.5
+        }).addTo(map)
+        .bindPopup("<b> มหาวิหารเซนต์พอล <br> St. Paul's Cathedral <br> เวลาเปิด-ปิด: 8.30-16.30 (หยุดทุกวันอาทิตย์)</b>")
+        .openPopup();
+
+        var marker = L.marker([51.51163803399418, -0.0777423315848646],
+        {
+        icon: greenIcon,
+        draggable: true,
+        title: "Tower of London",
+        opacity: 1.5
+         }).addTo(map)
+         .bindPopup("<b> หอคอยลอนดอน <br> Tower of London <br> เวลาเปิด-ปิด: 9.00-17.30</b>")
+         .openPopup();
+  </script>
+  </center>
+</body>
+</html>
